@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types = 1);
+
 /**
  * Weave Laminas Config Adaptor.
  */
@@ -17,12 +20,12 @@ trait Laminas
 	 *
 	 * Loads <emvironment>.{json, xml, ini} from configLocation.
 	 *
-	 * @param string $environment    Runtime environment.
-	 * @param string $configLocation Location from which to load config.
+	 * @param ?string $environment    Runtime environment.
+	 * @param ?string $configLocation Location from which to load config.
 	 *
 	 * @return array
 	 */
-	protected function loadConfig($environment = null, $configLocation = null)
+	protected function loadConfig(?string $environment = null, ?string $configLocation = null):array
 	{
 		$aggregator = new ConfigAggregator(
 			[
